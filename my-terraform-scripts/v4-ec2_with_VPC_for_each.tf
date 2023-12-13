@@ -20,8 +20,17 @@ resource "aws_security_group" "demo-terraform" {
   description = "Allow SSH access"
 
   ingress {
+    description = "SSH port"
     from_port   = "22"
     to_port     = "22"
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+  ingress {
+    description = "jenkins Port"
+    from_port   = "8080"
+    to_port     = "8080"
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
