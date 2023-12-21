@@ -22,4 +22,13 @@
         src: /opt/apache-maven-3.9.6-bin.tar.gz
         dest: /opt
         remote_src: yes
-    
+    - name: Download Docker 
+      apt: 
+        name: docker.io
+        state: present
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+#   - name: Giving 777 permission on /var/run/docker.sock
+          
